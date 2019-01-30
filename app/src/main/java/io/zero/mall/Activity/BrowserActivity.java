@@ -24,6 +24,7 @@ import android.text.Html;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.KeyListener;
+import android.util.Log;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -1404,7 +1405,7 @@ public class BrowserActivity extends Activity implements BrowserController {
 
     private boolean onKeyCodeBack(boolean douQ) {
         hideSoftInput(inputBox);
-        if (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED) {
+        if (switcherPanel != null && (switcherPanel.getStatus() != SwitcherPanel.Status.EXPANDED)) {
             switcherPanel.expanded();
         } else if (currentAlbumController == null) {
             finish();
@@ -1435,7 +1436,6 @@ public class BrowserActivity extends Activity implements BrowserController {
         } else {
             finish();
         }
-
         return true;
     }
 
